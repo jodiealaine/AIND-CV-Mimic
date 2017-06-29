@@ -145,17 +145,19 @@ function drawFeaturePoints(canvas, img, face) {
   // Obtain a 2D context object to draw on the canvas
   var ctx = canvas.getContext('2d');
 
-  // TODO: Set the stroke and/or fill style you want for each feature point marker
-  // See: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#Fill_and_stroke_styles
-  // <your code here>
-  
+  // Set the stroke
+  ctx.strokeStyle = '#006666';
+
   // Loop over each feature point in the face
   for (var id in face.featurePoints) {
     var featurePoint = face.featurePoints[id];
 
-    // TODO: Draw feature point, e.g. as a circle using ctx.arc()
-    // See: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
-    // <your code here>
+    // Draw feature points
+    ctx.beginPath();
+    ctx.arc(featurePoint.x,
+            featurePoint.y, 2, 0, 2 * Math.PI);
+    ctx.stroke();
+    
   }
 }
 
