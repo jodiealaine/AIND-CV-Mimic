@@ -165,14 +165,18 @@ function drawFeaturePoints(canvas, img, face) {
 function drawEmoji(canvas, img, face) {
   // Obtain a 2D context object to draw on the canvas
   var ctx = canvas.getContext('2d');
-
-  // TODO: Set the font and style you want for the emoji
-  // <your code here>
   
-  // TODO: Draw it using ctx.strokeText() or fillText()
-  // See: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText
-  // TIP: Pick a particular feature point as an anchor so that the emoji sticks to your face
-  // <your code here>
+  // Set the stroke
+  ctx.strokeStyle = '#006666';
+
+  // Set the font and style you want for the emoji
+  ctx.font = "40px Segoe UI Emoji";
+
+  // Get dominant emoji
+  var emoji = face.emojis.dominantEmoji;
+  
+  // Draw dominant emoji
+  ctx.fillText(emoji, face.featurePoints[0].y, 150);
 }
 
 // TODO: Define any variables and functions to implement the Mimic Me! game mechanics
